@@ -1,0 +1,108 @@
+url,label,group,note
+# SYNTHETIC labelled set written by the Baseera team. label 1 = fraudulent (invented look-alike), 0 = benign (real public site).
+# Positives are invented domains that imitate techniques reported in public police warnings; they are NOT real incidents.
+https://adpolice-fines-pay.com/pay,1,synthetic_lookalike,brand keyword + lure path
+https://adpo1ice.com/login,1,synthetic_lookalike,homoglyph digit
+https://аdpolice.com/,1,synthetic_lookalike,cyrillic homoglyph
+https://adpolice.ae/fines,1,synthetic_lookalike,tld swap
+https://abudhabipolice-fines.top/pay,1,synthetic_lookalike,brand keyword + abused tld
+https://adpolice-pay.online/mukhalafat,1,synthetic_lookalike,brand keyword
+https://pay.adpolice.gov-ae.com/,1,synthetic_lookalike,gov wording outside .gov.ae + brand subdomain
+https://emiratesnbd-helpdesk.com/contact,1,synthetic_lookalike,brand keyword
+https://emiratesnbd.co/update-kyc,1,synthetic_lookalike,tld swap
+https://emiratesndb.com/login,1,synthetic_lookalike,typosquat transposition
+https://emiratesnbd-verify.top/otp,1,synthetic_lookalike,brand keyword
+http://enbd-unblock.top/card,1,synthetic_lookalike,short brand token + abused tld
+https://bankfab.ae/cards,1,synthetic_lookalike,tld swap
+https://bankfab-rewards.xyz/redeem,1,synthetic_lookalike,brand keyword
+https://bankfabb.com/login,1,synthetic_lookalike,typosquat
+https://adib.secure-login.top/,1,synthetic_lookalike,brand in subdomain
+https://adib-card.com/verify,1,synthetic_lookalike,short brand token
+https://icp-uae-visa.com/apply,1,synthetic_lookalike,short brand token + lure
+https://icp.gov-services.online/emirates-id,1,synthetic_lookalike,brand subdomain + gov wording
+https://tamm.abudhabi.gov-services.com/,1,synthetic_lookalike,brand subdomain
+https://tamm-abudhabi.com/payment,1,synthetic_lookalike,brand keyword
+https://rta-fines-pay.netlify.app/,1,synthetic_lookalike,free hosting + brand
+https://rta-dubai-fines.com/pay,1,synthetic_lookalike,short brand token
+https://salik-topup.site/,1,synthetic_lookalike,brand keyword
+https://etisalat-bill.com/pay,1,synthetic_lookalike,brand keyword
+https://eand-rewards.click/points,1,synthetic_lookalike,brand keyword
+https://emiratespost-redelivery.com/track,1,synthetic_lookalike,brand keyword
+https://emirates-post-parcel.top/fee,1,synthetic_lookalike,generic delivery lure (no exact brand token)
+https://mashreq-online.help/login,1,synthetic_lookalike,brand keyword
+https://rnashreq.com/,1,synthetic_lookalike,rn->m homoglyph
+https://dewa.bill-pay.online/,1,synthetic_lookalike,brand subdomain
+https://centralbank.ae.verify-now.com/,1,synthetic_lookalike,brand subdomain
+https://cbuae-refund.com/claim,1,synthetic_lookalike,brand keyword
+https://moi-uae-fines.com/pay,1,synthetic_lookalike,short brand token + gov wording
+http://203.0.113.7/adpolice/login,1,synthetic_lookalike,raw IP
+https://uae-gov-refund.site/claim,1,synthetic_generic,generic gov refund lure (no brand)
+https://parcel-redelivery-fee.top/pay,1,synthetic_generic,generic delivery lure (no brand)
+https://www.adpolice.gov.ae/en,0,official,registry
+https://es.adpolice.gov.ae/TrafficServices/,0,official,registry subdomain
+https://www.emiratesnbd.com/en/contact-us,0,official,registry
+https://www.bankfab.com/en-ae/personal,0,official,registry
+https://www.adib.ae/en/pages/contact-us.aspx,0,official,registry
+https://icp.gov.ae/en/contact-us/,0,official,registry
+https://www.tamm.abudhabi/en/contact-us,0,official,registry
+https://www.rta.ae/wps/portal/rta/ae/home,0,official,registry
+https://www.centralbank.ae/en/contact-us/,0,official,registry
+https://moi.gov.ae/en/home,0,official,registry
+https://www.eand.ae/en/index.html,0,official,registry
+https://www.du.ae/,0,official,registry
+https://www.dewa.gov.ae/en/,0,official,registry
+https://www.salik.ae/en,0,official,registry
+https://www.emiratespost.ae/,0,official,registry
+https://u.ae/en,0,gov_not_in_registry,UAE government portal (.ae)
+https://ded.gov.ae/,0,gov_not_in_registry,.gov.ae suffix
+https://www.google.com/,0,popular,
+https://www.wikipedia.org/,0,popular,
+https://www.noon.com/uae-en/,0,popular,
+https://www.amazon.ae/,0,popular,
+https://www.careem.com/,0,popular,
+https://www.talabat.com/uae,0,popular,
+https://www.dubizzle.com/,0,popular,
+https://www.khaleejtimes.com/,0,popular,
+https://www.thenationalnews.com/,0,popular,
+https://www.gulfnews.com/,0,popular,
+https://github.com/login,0,popular,login path on a legit site
+https://www.linkedin.com/login,0,popular,login path on a legit site
+https://www.visitabudhabi.ae/en,0,adversarial,tourism site with 'abudhabi' (not a brand keyword)
+https://www.adibrands.com/,0,adversarial,'adib' prefix inside another word
+https://www.fabrics-online.com/,0,adversarial,'fab' prefix inside another word
+https://www.portal-example.com/login,0,adversarial,'rta' inside 'portal'
+https://www.salikcarrental.ae/,0,adversarial,invented benign business containing 'salik' (expected false positive)
+https://bit.ly/3x4mpl3,0,adversarial,shortener (destination unknown offline)
+https://my-shop.netlify.app/,0,adversarial,legit free hosting
+https://www.adpolice.gov.ae/en/services/traffic-fines?lang=en&utm_source=sms&utm_campaign=fines,0,adversarial,official domain: deep path + tracking params + lure words
+https://www.du.ae/personal/help/login?redirect=%2Faccount%2Fbill%3Fotp%3Drequired,0,adversarial,official domain: encoded redirect param with 'otp'
+https://www.bankfab.com/en-ae/personal/login#verify-otp,0,adversarial,official domain: login path + fragment
+https://WWW.ADIB.AE/EN/Pages/default.aspx,0,adversarial,official domain in upper case
+https://www.adpolice.gov.ae./en,0,adversarial,official domain with trailing dot (FQDN form)
+https://www.dewa.gov.ae/en/consumer/billing/easy-pay?account=123456&verify=1,0,adversarial,official domain: pay path + digits in query (path illustrative)
+https://www.tamm.abudhabi/en/life-events/individual/traffic-fines/pay-fines,0,adversarial,official .abudhabi domain: fines path (path illustrative)
+https://www.emirates.com/ae/english/,0,adversarial,legit UAE .com (airline; 'emirates' also in emiratesnbd)
+https://www.etihad.com/en-ae/,0,adversarial,legit UAE .com (airline)
+https://www.emiratesislamic.ae/,0,adversarial,legit UAE bank not in the registry ('emirates' prefix)
+https://www.rakbank.ae/,0,adversarial,legit UAE bank not in the registry
+https://www.aramex.com/ae/en,0,adversarial,legit UAE .com (courier: delivery lures target this category)
+https://www.carrefouruae.com/,0,adversarial,legit UAE .com ('uae' in the label)
+https://www.dubizzle.com/,0,adversarial,legit UAE .com (classifieds)
+https://www.talabat.com/uae,0,adversarial,legit UAE .com (delivery app)
+https://www.emaar.com/en/,0,adversarial,legit UAE .com (real estate)
+https://www.dubaiairports.ae/,0,adversarial,legit UAE site with 'dubai' in the label
+https://www.google.com/url?q=https://www.adpolice.gov.ae/,0,adversarial,official domain inside a legit redirect parameter
+https://web.archive.org/web/2025/https://www.rta.ae/,0,adversarial,official domain inside a legit archive path
+https://dubai-cafe-menu.netlify.app/,0,adversarial,shared platform sub-domain (illustrative invented benign site)
+https://abudhabi-runners.github.io/,0,adversarial,shared platform sub-domain (illustrative invented benign site)
+https://sites.google.com/view/al-noor-school-events,0,adversarial,shared platform path (illustrative invented benign site)
+https://my-portfolio.vercel.app/,0,adversarial,shared platform sub-domain (illustrative invented benign site)
+https://maps.app.goo.gl/AbC123xyz,0,adversarial,Google Maps share link (shortener; illustrative id)
+https://tinyurl.com/uae-visa-info,0,adversarial,shortener (illustrative id; destination unknown offline)
+https://youtu.be/dQw4w9WgXcQ,0,adversarial,platform short link
+https://secure-login.top/www.adpolice.gov.ae/fines,1,synthetic_adversarial,SYNTHETIC: official domain hidden in the path of a throw-away domain
+https://pay-fines-now.top/?ref=https://www.adpolice.gov.ae,1,synthetic_adversarial,SYNTHETIC: official domain in the query of a throw-away domain
+https://adpolice.gov.ae.verify-fines.top/,1,synthetic_adversarial,SYNTHETIC: official domain as sub-domain prefix
+https://www.rta.ae@rta-fines.top/,1,synthetic_adversarial,SYNTHETIC: official domain as userinfo before '@'
+https://emiratesnbd-verify.netlify.app/,1,synthetic_adversarial,SYNTHETIC: brand on a shared platform sub-domain
+https://dewa-bill.github.io/pay,1,synthetic_adversarial,SYNTHETIC: brand on a shared platform sub-domain

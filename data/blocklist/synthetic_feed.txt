@@ -1,0 +1,3 @@
+# SYNTHETIC demo blocklist feed (invented domains). Replace with PhishTank / OpenPhish / URLhaus imports in production.
+enbd-unblock.top
+adpolice-pay.online

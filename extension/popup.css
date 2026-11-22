@@ -1,0 +1,9 @@
+body{width:340px;margin:0;padding:10px;font-family:"Noto Naskh Arabic","Segoe UI",Tahoma,sans-serif;color:#14202b}
+header{display:flex;justify-content:space-between;align-items:center;background:#0b2e3a;color:#fff;margin:-10px -10px 8px;padding:8px 10px}
+header button{background:transparent;color:#fff;border:1px solid #5b8;border-radius:6px;cursor:pointer}
+.mut{color:#5b6b7a;font-size:12px}.ltr{direction:ltr;text-align:left;word-break:break-all}
+.gauge{font-size:30px;font-weight:bold;text-align:center;border-radius:10px;color:#fff;padding:6px;margin:6px 0}
+.low{background:#1e8e3e}.medium{background:#e8a400}.high{background:#d93025}
+.expl{white-space:pre-line;font-size:13px;line-height:1.7}
+.aman{background:#eef8f4;border:1px solid #0b5d4b;border-radius:8px;padding:6px;margin-top:8px;font-size:12px}
+input{width:100%;box-sizing:border-box;margin:4px 0}

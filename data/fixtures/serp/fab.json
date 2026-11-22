@@ -1,0 +1,39 @@
+{
+ "data_label": "synthetic",
+ "note": "SYNTHETIC example listings written by the Baseera team to demo the verifier. Not recorded from Google Search or Google Maps. Phone numbers and look-alike domains are invented.",
+ "listings": [
+  {
+   "source": "search",
+   "query": "FAB bank customer service",
+   "rank": 1,
+   "title": "Contact us | First Abu Dhabi Bank",
+   "displayed_url": "https://www.bankfab.com/en-ae/contact-us",
+   "phone": "600 52 5500"
+  },
+  {
+   "source": "search",
+   "query": "FAB bank customer service",
+   "rank": 2,
+   "is_ad": true,
+   "title": "First Abu Dhabi Bank - Reward Points Redeem",
+   "displayed_url": "https://bankfab-rewards.xyz/redeem",
+   "snippet": "Your points expire today"
+  },
+  {
+   "source": "maps",
+   "query": "First Abu Dhabi Bank",
+   "rank": 1,
+   "title": "First Abu Dhabi Bank Head Office",
+   "displayed_url": "https://www.bankfab.com",
+   "phone": "+971 2 681 1511"
+  },
+  {
+   "source": "maps",
+   "query": "First Abu Dhabi Bank",
+   "rank": 2,
+   "title": "First Abu Dhabi Bank Card Services",
+   "displayed_url": "https://bankfab.ae/cards",
+   "phone": "+971 54 000 7788"
+  }
+ ]
+}

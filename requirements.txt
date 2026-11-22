@@ -1,0 +1,11 @@
+fastapi>=0.110
+uvicorn[standard]>=0.29
+httpx>=0.27
+pydantic>=2.6
+pyyaml>=6
+tldextract>=5
+pytest>=8
+ruff>=0.4
+Pillow>=10
+playwright>=1.48  # deep-scan sandbox + UI screenshots; uses the system Chrome (no browser download)
+python-pptx>=1.0  # only for scripts/make_pptx.py

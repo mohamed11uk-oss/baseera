@@ -1,0 +1,31 @@
+{
+ "data_label": "synthetic",
+ "note": "SYNTHETIC example listings written by the Baseera team to demo the verifier. Not recorded from Google Search or Google Maps. Phone numbers and look-alike domains are invented.",
+ "listings": [
+  {
+   "source": "search",
+   "query": "RTA Dubai fines",
+   "rank": 1,
+   "title": "RTA - Fines Payment",
+   "displayed_url": "https://www.rta.ae/wps/portal/rta/ae/home",
+   "phone": "800 9090"
+  },
+  {
+   "source": "search",
+   "query": "RTA Dubai fines",
+   "rank": 2,
+   "is_ad": true,
+   "title": "RTA Dubai Salik & Fines Settlement",
+   "displayed_url": "https://rta-fines-pay.netlify.app/",
+   "snippet": "Settle today to avoid penalties"
+  },
+  {
+   "source": "maps",
+   "query": "RTA customer happiness",
+   "rank": 1,
+   "title": "RTA Customer Happiness Centre",
+   "displayed_url": "https://www.rta.ae",
+   "phone": "+971 4 284 4444"
+  }
+ ]
+}

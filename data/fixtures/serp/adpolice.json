@@ -1,0 +1,46 @@
+{
+ "data_label": "synthetic",
+ "note": "SYNTHETIC example listings written by the Baseera team to demo the verifier. Not recorded from Google Search or Google Maps. Phone numbers and look-alike domains are invented.",
+ "listings": [
+  {
+   "source": "search",
+   "query": "Abu Dhabi Police traffic fines payment",
+   "rank": 1,
+   "is_ad": true,
+   "title": "Abu Dhabi Police - Pay Traffic Fines 50% Discount",
+   "displayed_url": "https://adpolice-fines-pay.com/pay",
+   "snippet": "Limited time discount on all fines"
+  },
+  {
+   "source": "search",
+   "query": "Abu Dhabi Police traffic fines payment",
+   "rank": 2,
+   "title": "Abu Dhabi Police",
+   "displayed_url": "https://www.adpolice.gov.ae/en",
+   "phone": "8003333"
+  },
+  {
+   "source": "maps",
+   "query": "Abu Dhabi Police",
+   "rank": 1,
+   "title": "Abu Dhabi Police GHQ",
+   "displayed_url": "https://www.adpolice.gov.ae/",
+   "phone": "8003333"
+  },
+  {
+   "source": "maps",
+   "query": "Abu Dhabi Police",
+   "rank": 2,
+   "title": "Abu Dhabi Police Fines Office",
+   "displayed_url": "https://adpo1ice-gov.com/fines",
+   "phone": "+971 56 000 4455"
+  },
+  {
+   "source": "search",
+   "query": "شرطة أبوظبي دفع المخالفات",
+   "rank": 3,
+   "title": "شرطة أبوظبي - سداد المخالفات بخصم",
+   "displayed_url": "https://xn--dpolice-1fg.com/mukhalafat"
+  }
+ ]
+}

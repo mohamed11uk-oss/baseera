@@ -1,0 +1,37 @@
+# Signal weights (initial values chosen by the team, NOT facts). Tune with `make eval`.
+# score = clip(sum(weight * severity), 0, 100) then hard overrides apply.
+thresholds:
+  medium: 30   # score >= medium -> 'medium'
+  high: 55     # score >= high   -> 'high'
+weights:
+  blocklist_hit: 60          # + override: at least 'high'
+  gsb_match: 60              # Google Safe Browsing match (live, key needed) + same override as blocklist_hit
+  urlhaus_match: 60          # URLhaus (live, key + SOURCE_URLHAUS=on): exact URL = 1.0 + override; same host 0.5 (online) / 0.25
+  urlscan_seen: 0            # urlscan.io existing scans: informational only, never scored
+  lookalike: 55              # typosquat / homoglyph / brand keyword / TLD swap / brand in subdomain
+  gov_impersonation: 20      # 'gov' wording in a non-.gov.ae domain
+  ip_host: 15
+  official_domain_in_url: 15  # official domain inside path/query of a non-official host (2026-11-19, see DECISIONS.md)
+  punycode: 12
+  suspicious_tld: 10
+  free_hosting: 10
+  at_symbol: 10
+  sensitive_path: 8
+  url_shortener: 6
+  many_subdomains: 6
+  long_url: 3
+  hyphen_digits: 4
+  no_tls: 6
+  new_domain: 20             # registered < 30 days (RDAP)
+  new_certificate: 5         # TLS cert issued < 7 days ago
+  gov_suffix: -15            # host under .gov.ae but not in registry (government-only suffix)
+  text_urgency: 8
+  text_sensitive_request: 12
+  phone_unverified: 30       # phone not in registry for an entity whose phones ARE in the registry (=> medium, not "fake")
+  phone_mobile_for_brand: 15 # mobile number presented as customer service of a big entity
+  phone_other_entity: 10     # number belongs to a different registered entity
+  listing_unofficial_site: 25  # listing claims entity but website is not official
+  listing_sponsored_unofficial: 15
+  # Deep scan (opt-in headless Chrome sandbox). Team-chosen starting values, not facts; deep scan is off in `make eval`.
+  sensitive_form: 20         # page has OTP / card / Emirates ID fields (password-only login form = half severity)
+  brand_in_page: 15          # page title/text names a registry entity, but the domain is not one of its official domains

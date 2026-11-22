@@ -1,0 +1,17 @@
+# Search/Maps query templates for the brand scan (Prompt 3.1) and scripts/record_demo_fixtures.py (Prompt 3.6).
+# {name_en} / {name_ar} are filled from data/registry/entities.yaml (entity_name_en / entity_name_ar), so no brand
+# name is typed by hand here. The product owner can add/remove brands (registry ids) and templates.
+# engine: google = Google Search (ads + organic), google_maps = Google Maps local results (via SerpAPI).
+templates:
+  en:
+    - {q: "{name_en} customer service number", engines: [google, google_maps]}
+    - {q: "{name_en} contact", engines: [google]}
+    - {q: "{name_en} login", engines: [google]}
+    - {q: "{name_en} pay fine", engines: [google], categories: [police, government]}
+  ar:
+    - {q: "{name_ar} رقم خدمة العملاء", engines: [google, google_maps]}
+    - {q: "{name_ar} تواصل معنا", engines: [google]}
+    - {q: "{name_ar} تسجيل الدخول", engines: [google]}
+    - {q: "{name_ar} دفع المخالفات", engines: [google], categories: [police, government]}
+# Demo brands to record once (8-10). Ids must exist in the registry.
+demo_brands: [adpolice, dubaipolice, rta, enbd, fab, adib, eand, du, dewa, salik]

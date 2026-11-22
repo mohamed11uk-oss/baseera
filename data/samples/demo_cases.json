@@ -1,0 +1,23 @@
+{
+ "note": "SYNTHETIC demo cases. Domains, IPs (RFC 5737 documentation range 203.0.113.0/24), name servers, registrars and phone numbers are invented to demonstrate campaign clustering. They are not real incidents.",
+ "cases": [
+  {"input": "https://adpolice-fines-pay.com/pay", "created_at": "2026-11-10T06:12:00+00:00",
+   "infra": {"ips": ["203.0.113.10"], "nameservers": ["ns1.synthetic-dns.example", "ns2.synthetic-dns.example"], "registrar": "Example Registrar A", "created": "2026-11-08", "path": "/pay", "phones": ["+971 56 000 4455"]}},
+  {"input": "https://adpo1ice-gov.com/fines", "created_at": "2026-11-11T09:40:00+00:00",
+   "infra": {"ips": ["203.0.113.10"], "nameservers": ["ns1.synthetic-dns.example", "ns2.synthetic-dns.example"], "registrar": "Example Registrar A", "created": "2026-11-09", "path": "/fines", "phones": ["+971 56 000 4455"]}},
+  {"input": "https://abudhabipolice-fines.top/pay", "created_at": "2026-11-13T18:05:00+00:00",
+   "infra": {"ips": ["203.0.113.11"], "nameservers": ["ns1.synthetic-dns.example", "ns2.synthetic-dns.example"], "registrar": "Example Registrar A", "created": "2026-11-12", "path": "/pay"}},
+  {"input": "https://adpolice-pay.online/mukhalafat", "created_at": "2026-11-15T07:30:00+00:00",
+   "infra": {"ips": ["203.0.113.11"], "registrar": "Example Registrar A", "created": "2026-11-14", "path": "/mukhalafat"}},
+  {"input": "https://emiratesnbd-helpdesk.com/contact", "created_at": "2026-11-12T11:00:00+00:00",
+   "infra": {"ips": ["198.51.100.20"], "nameservers": ["ns1.parking-synthetic.example"], "registrar": "Example Registrar B", "created": "2026-11-01", "path": "/contact", "phones": ["+971 50 000 1234"]}},
+  {"input": "https://emiratesnbd.co/update-kyc", "created_at": "2026-11-14T13:20:00+00:00",
+   "infra": {"ips": ["198.51.100.21"], "registrar": "Example Registrar B", "created": "2026-11-02", "path": "/update-kyc", "phones": ["+971 50 000 1234"]}},
+  {"input": "http://enbd-unblock.top/card", "created_at": "2026-11-16T20:45:00+00:00",
+   "infra": {"ips": ["198.51.100.21"], "registrar": "Example Registrar B", "created": "2026-11-03", "path": "/card"}},
+  {"input": "https://bankfab-rewards.xyz/redeem", "created_at": "2026-11-17T08:10:00+00:00",
+   "infra": {"ips": ["198.51.100.40"], "registrar": "Example Registrar C", "created": "2026-11-15", "path": "/redeem"}},
+  {"input": "https://rta-fines-pay.netlify.app/", "created_at": "2026-11-18T10:00:00+00:00",
+   "infra": {"registrar": "(shared platform)", "path": "/"}}
+ ]
+}

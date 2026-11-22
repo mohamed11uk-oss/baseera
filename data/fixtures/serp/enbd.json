@@ -1,0 +1,56 @@
+{
+ "data_label": "synthetic",
+ "note": "SYNTHETIC example listings written by the Baseera team to demo the verifier. Not recorded from Google Search or Google Maps. Phone numbers and look-alike domains are invented.",
+ "listings": [
+  {
+   "source": "search",
+   "query": "Emirates NBD customer service number",
+   "rank": 1,
+   "is_ad": true,
+   "title": "Emirates NBD Customer Care 24/7 - Call Now",
+   "displayed_url": "https://emiratesnbd-helpdesk.com/contact",
+   "snippet": "Card blocked? Call our agents now"
+  },
+  {
+   "source": "search",
+   "query": "Emirates NBD customer service number",
+   "rank": 2,
+   "title": "Contact Us | Emirates NBD",
+   "displayed_url": "https://www.emiratesnbd.com/en/contact-us",
+   "phone": "600 54 0000"
+  },
+  {
+   "source": "maps",
+   "query": "Emirates NBD customer service",
+   "rank": 1,
+   "title": "Emirates NBD Customer Service Center",
+   "displayed_url": "https://www.emiratesnbd.com/en",
+   "phone": "600 54 0000",
+   "address": "Dubai"
+  },
+  {
+   "source": "maps",
+   "query": "Emirates NBD customer service",
+   "rank": 2,
+   "title": "Emirates NBD Card Support",
+   "displayed_url": "https://www.emiratesnbd.com/en",
+   "phone": "+971 50 000 1234",
+   "address": "Abu Dhabi"
+  },
+  {
+   "source": "maps",
+   "query": "Emirates NBD customer service",
+   "rank": 3,
+   "title": "ENBD Card Unblock Help",
+   "displayed_url": "http://enbd-unblock.top",
+   "phone": "+971 52 000 9876"
+  },
+  {
+   "source": "search",
+   "query": "بنك الإمارات دبي الوطني رقم خدمة العملاء",
+   "rank": 3,
+   "title": "بنك الإمارات دبي الوطني - تحديث البيانات",
+   "displayed_url": "https://emiratesnbd.co/update-kyc"
+  }
+ ]
+}

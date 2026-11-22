@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>بصيرة | Baseera</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header>
+  <div class="brand"><span class="logo">◉</span> <b data-i18n="title">بصيرة</b> <small data-i18n="tagline">كاشف الروابط والقوائم المزيفة</small></div>
+  <nav>
+    <button class="tab active" data-tab="analyze" data-i18n="tab_analyze">فحص رابط أو رسالة</button>
+    <button class="tab" data-tab="scan" data-i18n="tab_scan">نتائج البحث والخرائط</button>
+    <button class="tab" data-tab="dash" data-i18n="tab_dash">لوحة المحلل</button>
+    <button class="tab" data-tab="health" data-i18n="tab_health">الحالة والسجل</button>
+  </nav>
+  <button id="lang" class="ghost">English</button>
+</header>
+<div class="banner" data-i18n="proto">نموذج أولي لهاكاثون ScamShield AI. النتائج آلية وتحتاج تأكيد، وأي بيانات موسومة «تجريبية» مصنوعة للعرض.</div>
+<main>
+<section id="analyze" class="panel active">
+  <div class="card">
+    <label data-i18n="paste">الصق رابطاً، أو نص رسالة SMS/واتساب، أو اسم جهة:</label>
+    <textarea id="q" rows="3" placeholder="https://… أو نص الرسالة"></textarea>
+    <div class="row">
+      <button id="go" class="primary" data-i18n="check">افحص</button>
+      <label class="chk" title="Opens the link in an isolated headless browser: screenshot + form fields. Slower (up to ~15s)."><input type="checkbox" id="deep"> <span data-i18n="deep">فحص معمّق (Deep scan)</span></label>
+      <span class="examples"><span data-i18n="try">جرّب:</span>
+        <a href="#" data-ex="https://adpolice-fines-pay.com/pay">adpolice-fines-pay.com</a>
+        <a href="#" data-ex="https://www.adpolice.gov.ae/en">adpolice.gov.ae</a>
+        <a href="#" data-ex="عاجل: تم تعليق بطاقتك من بنك الإمارات دبي الوطني. حدّث بياناتك وأدخل رمز التحقق على hxxps://emiratesnbd-verify[.]top/otp أو اتصل 0500001234">رسالة SMS</a>
+      </span>
+    </div>
+    <details><summary data-i18n="listing_form">فحص نتيجة خرائط/بحث يدوياً (اسم + رقم + موقع)</summary>
+      <div class="grid3">
+        <input id="l_title" placeholder="الاسم الظاهر مثال: Emirates NBD Customer Service">
+        <input id="l_phone" placeholder="الرقم الظاهر" dir="ltr">
+        <input id="l_site" placeholder="الموقع الظاهر" dir="ltr">
+      </div>
+      <label class="chk"><input type="checkbox" id="l_ad"> <span data-i18n="sponsored">إعلان ممول (Sponsored)</span></label>
+      <button id="go_l" data-i18n="check_listing">افحص النتيجة</button>
+    </details>
+  </div>
+  <div id="result"></div>
+  <div class="card aman">
+    <b data-i18n="report">بلّغ عن الاحتيال — خدمة أمان (شرطة أبوظبي)</b>
+    <div><span data-i18n="call">اتصال</span>: <b dir="ltr">8002626</b> &nbsp;|&nbsp; <span data-i18n="sms">رسالة نصية</span>: <b dir="ltr">2828</b> &nbsp;|&nbsp; <span data-i18n="emergency">الطوارئ</span>: <b>999</b></div>
+    <small data-i18n="aman_src">المصدر: adpolice.gov.ae (تم التحقق 2026-11-19)</small>
+  </div>
+</section>
+
+<section id="scan" class="panel">
+  <div class="card">
+    <label data-i18n="choose">اختر جهة لفحص نتائج البحث والخرائط باسمها:</label>
+    <div class="row"><select id="brand"></select><button id="scan_go" class="primary" data-i18n="scan">افحص النتائج</button></div>
+  </div>
+  <div id="scan_out"></div>
+</section>
+
+<section id="dash" class="panel">
+  <div class="row filters">
+    <select id="f_entity"><option value="" data-i18n="all_entities">كل الجهات</option></select>
+    <select id="f_level"><option value="" data-i18n="all_levels">كل المستويات</option><option value="high">عالٍ</option><option value="medium">متوسط</option></select>
+    <button id="refresh" data-i18n="refresh">تحديث</button>
+  </div>
+  <div id="analyst_login" class="card hidden">
+    <b>رمز المحلل (Analyst token)</b>
+    <div class="mut">لوحة المحلل محمية لأن الخادم مضبوط بـ ANALYST_TOKEN / The dashboard is protected (ANALYST_TOKEN is set).</div>
+    <div class="row"><input id="analyst_token" type="password" autocomplete="current-password" dir="ltr" maxlength="512">
+    <button id="analyst_go">دخول / Sign in</button> <span id="analyst_msg" class="mut"></span></div>
+  </div>
+  <div id="kpis" class="kpis"></div>
+  <h3 data-i18n="campaigns">الحملات المكتشفة (Campaigns)</h3>
+  <div id="clusters"></div>
+  <h3 data-i18n="cases">الحالات</h3>
+  <div id="cases"></div>
+</section>
+
+<section id="health" class="panel">
+  <div id="health_out" class="card"></div>
+  <h3 data-i18n="registry">سجل الجهات الرسمية (Official Entity Registry)</h3>
+  <div id="registry_out"></div>
+</section>
+</main>
+<div id="modal" class="modal hidden"><div class="modal-body"><button class="close" id="close">✕</button><div id="modal_content"></div></div></div>
+<footer>Baseera v0.1 · ScamShield AI hackathon prototype · <a href="/docs" target="_blank">API docs</a></footer>
+<script src="/static/app.js"></script>
+</body>
+</html>

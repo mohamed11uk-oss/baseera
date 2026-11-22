@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Baseera — بصيرة",
+  "version": "0.1.0",
+  "description": "Check the current tab with a local Baseera server (fake links & impersonation of UAE entities).",
+  "action": { "default_popup": "popup.html", "default_title": "بصيرة: افحص هذا الموقع" },
+  "permissions": ["activeTab", "storage"],
+  "host_permissions": ["http://127.0.0.1:8000/*", "http://localhost:8000/*"],
+  "optional_host_permissions": ["http://*/*", "https://*/*"]
+}

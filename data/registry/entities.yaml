@@ -1,0 +1,244 @@
+# Baseera Official Entity Registry (source of truth)
+# ---------------------------------------------------------------------------
+# Rules (see CLAUDE.md):
+#  * Every entity has source_url + verified_on.
+#  * status: verified       -> domain AND listed phones were read on the entity's own official
+#                              website on verified_on (source_url = the page they were read from).
+#            domain_only    -> official domain is the entity's live website (fetched on verified_on),
+#                              but NO phone number was confirmed. official_phones stays empty.
+#                              Product owner must add phones from the official contact page.
+#  * Never add a phone you did not read on the official site yourself.
+#  * official_domains are registrable domains; any sub-domain of them is treated as official.
+# Verified by the Baseera build on 2026-11-19 (Asia/Muscat) by fetching the pages below.
+
+entities:
+  - id: adpolice
+    entity_name_ar: شرطة أبوظبي
+    entity_name_en: Abu Dhabi Police
+    category: police
+    keywords: [adpolice, abudhabipolice, "abu dhabi police", "شرطة ابوظبي", "شرطة أبوظبي"]
+    official_domains: [adpolice.gov.ae]
+    official_phones:
+      - {number: "999", label: "Emergency"}
+      - {number: "8003333", label: "Call center"}
+      - {number: "8002626", label: "Aman service (call)"}
+      - {number: "2828", label: "Aman service (SMS)"}
+    source_url: https://www.adpolice.gov.ae/en/ContactUs
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: moi
+    entity_name_ar: وزارة الداخلية
+    entity_name_en: UAE Ministry of Interior
+    category: government
+    keywords: [moi, "ministry of interior", "وزارة الداخلية"]
+    official_domains: [moi.gov.ae]
+    official_phones:
+      - {number: "8005000", label: "Toll free"}
+    source_url: https://moi.gov.ae/en/home
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: icp
+    entity_name_ar: الهيئة الاتحادية للهوية والجنسية والجمارك وأمن المنافذ
+    entity_name_en: Federal Authority for Identity, Citizenship, Customs & Port Security (ICP)
+    category: government
+    keywords: [icp, icpuae, "identity and citizenship", "الهوية والجنسية"]
+    official_domains: [icp.gov.ae]
+    official_phones:
+      - {number: "600522222", label: "Call center (inside UAE)"}
+      - {number: "+971600522222", label: "Call center (outside UAE)"}
+    source_url: https://icp.gov.ae/en/contact-us/
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: tamm
+    entity_name_ar: تم - حكومة أبوظبي
+    entity_name_en: TAMM (Abu Dhabi Government Services)
+    category: government
+    keywords: [tamm, "abu dhabi government", "تم"]
+    official_domains: [tamm.abudhabi]
+    official_phones:
+      - {number: "800555", label: "Abu Dhabi Contact Center"}
+    source_url: https://www.tamm.abudhabi/en/contact-us
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: rta
+    entity_name_ar: هيئة الطرق والمواصلات - دبي
+    entity_name_en: Roads and Transport Authority (RTA) Dubai
+    category: government
+    keywords: [rta, "roads and transport", "هيئة الطرق"]
+    official_domains: [rta.ae]
+    official_phones:
+      - {number: "8009090", label: "Call centre"}
+      - {number: "+97146051414", label: "Overseas callers"}
+      - {number: "+97142844444", label: "Telephone"}
+    source_url: https://www.rta.ae/wps/portal/rta/ae/home/about-rta/contactus
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: cbuae
+    entity_name_ar: مصرف الإمارات العربية المتحدة المركزي
+    entity_name_en: Central Bank of the UAE
+    category: government
+    keywords: [centralbank, cbuae, "central bank", "المصرف المركزي"]
+    official_domains: [centralbank.ae]
+    official_phones:
+      - {number: "+97126915555", label: "Head office, Abu Dhabi"}
+    source_url: https://www.centralbank.ae/en/contact-us/
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: enbd
+    entity_name_ar: بنك الإمارات دبي الوطني
+    entity_name_en: Emirates NBD
+    category: bank
+    keywords: [emiratesnbd, enbd, "emirates nbd", "الإمارات دبي الوطني"]
+    official_domains: [emiratesnbd.com]
+    official_phones:
+      - {number: "600540000", label: "Call center"}
+    source_url: https://www.emiratesnbd.com/en/contact-us
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: fab
+    entity_name_ar: بنك أبوظبي الأول
+    entity_name_en: First Abu Dhabi Bank (FAB)
+    category: bank
+    keywords: [bankfab, "first abu dhabi bank", "بنك أبوظبي الأول", "fab bank"]
+    official_domains: [bankfab.com]
+    official_phones:
+      - {number: "600525500", label: "FAB Service (UAE)"}
+      - {number: "+97126811511", label: "FAB Service (International)"}
+    source_url: https://www.bankfab.com/en-ae/contact-us
+    verified_on: "2026-11-19"
+    status: verified
+
+  - id: adib
+    entity_name_ar: مصرف أبوظبي الإسلامي
+    entity_name_en: Abu Dhabi Islamic Bank (ADIB)
+    category: bank
+    keywords: [adib, "abu dhabi islamic bank", "مصرف أبوظبي الإسلامي"]
+    official_domains: [adib.ae]
+    official_phones:
+      - {number: "600543216", label: "Customer service"}
+    source_url: https://www.adib.ae/en/pages/contact-us.aspx
+    verified_on: "2026-11-19"
+    status: verified
+
+  # ---- domain_only: official site confirmed live, phones NOT confirmed --------------------
+  - id: eand
+    entity_name_ar: إي آند (اتصالات)
+    entity_name_en: e& (etisalat)
+    category: telecom
+    keywords: [etisalat, eand, "e&", "اتصالات"]
+    official_domains: [eand.ae, etisalat.ae, eand.com]
+    official_phones: []
+    source_url: https://www.etisalat.ae/en/index.html
+    verified_on: "2026-11-19"
+    status: domain_only
+    note: "etisalat.ae redirected to eand.ae on 2026-11-19. eand.com is the group site (UNVERIFIED by fetch). Phones not confirmed."
+
+  - id: du
+    entity_name_ar: دو
+    entity_name_en: du (EITC)
+    category: telecom
+    keywords: [dutelecom, "du telecom", "دو للاتصالات"]
+    official_domains: [du.ae]
+    official_phones: []
+    source_url: https://www.du.ae/
+    verified_on: "2026-11-19"
+    status: domain_only
+    note: "Site blocks automated fetches (HTTP error to headless browser). Phones not confirmed."
+
+  - id: dib
+    entity_name_ar: بنك دبي الإسلامي
+    entity_name_en: Dubai Islamic Bank
+    category: bank
+    keywords: [dib, "dubai islamic bank", "بنك دبي الإسلامي"]
+    official_domains: [dib.ae]
+    official_phones: []
+    source_url: https://www.dib.ae/
+    verified_on: "2026-11-19"
+    status: domain_only
+
+  - id: mashreq
+    entity_name_ar: بنك المشرق
+    entity_name_en: Mashreq
+    category: bank
+    keywords: [mashreq, "المشرق"]
+    official_domains: [mashreq.com]
+    official_phones: []
+    source_url: https://www.mashreq.com/en/uae/neo/
+    verified_on: "2026-11-19"
+    status: domain_only
+
+  - id: tdra
+    entity_name_ar: هيئة تنظيم الاتصالات والحكومة الرقمية
+    entity_name_en: TDRA
+    category: government
+    keywords: [tdra, "هيئة تنظيم الاتصالات"]
+    official_domains: [tdra.gov.ae]
+    official_phones: []
+    source_url: https://tdra.gov.ae/en
+    verified_on: "2026-11-19"
+    status: domain_only
+
+  - id: dubaipolice
+    entity_name_ar: شرطة دبي
+    entity_name_en: Dubai Police
+    category: police
+    keywords: [dubaipolice, "dubai police", "شرطة دبي"]
+    official_domains: [dubaipolice.gov.ae]
+    official_phones: []
+    source_url: https://www.dubaipolice.gov.ae/app/home
+    verified_on: "2026-11-19"
+    status: domain_only
+
+  - id: adcb
+    entity_name_ar: بنك أبوظبي التجاري
+    entity_name_en: ADCB
+    category: bank
+    keywords: [adcb, "abu dhabi commercial bank", "بنك أبوظبي التجاري"]
+    official_domains: [adcb.com]
+    official_phones: []
+    source_url: https://www.adcb.com/en/
+    verified_on: "2026-11-19"
+    status: domain_only
+    note: "Site returned HTTP 403 to automated fetch; domain is the bank's known site but treat as UNVERIFIED until a human confirms."
+
+  - id: empost
+    entity_name_ar: بريد الإمارات
+    entity_name_en: Emirates Post
+    category: delivery
+    keywords: [emiratespost, "emirates post", "بريد الإمارات"]
+    official_domains: [emiratespost.ae]
+    official_phones: []
+    source_url: https://www.emiratespost.ae/
+    verified_on: "2026-11-19"
+    status: domain_only
+    note: "Site returned HTTP 403 to automated fetch; UNVERIFIED until a human confirms."
+
+  - id: dewa
+    entity_name_ar: هيئة كهرباء ومياه دبي
+    entity_name_en: DEWA
+    category: utility
+    keywords: [dewa, "هيئة كهرباء ومياه دبي"]
+    official_domains: [dewa.gov.ae]
+    official_phones: []
+    source_url: https://www.dewa.gov.ae/en/
+    verified_on: "2026-11-19"
+    status: domain_only
+
+  - id: salik
+    entity_name_ar: سالك
+    entity_name_en: Salik
+    category: government
+    keywords: [salik, "سالك"]
+    official_domains: [salik.ae]
+    official_phones: []
+    source_url: https://www.salik.ae/en
+    verified_on: "2026-11-19"
+    status: domain_only
+    note: "Site returned HTTP 403 to automated fetch; UNVERIFIED until a human confirms."
