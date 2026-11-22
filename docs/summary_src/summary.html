@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Baseera — summary</title>
+<style>
+@page { size: A4; margin: 14mm 15mm; }
+body { font-family: "Noto Sans", "Noto Sans Arabic", sans-serif; color: #14202b; font-size: 10.2pt; line-height: 1.38; margin: 0; }
+header { background: #0b2e3a; color: #fff; padding: 12px 16px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+header h1 { margin: 0; font-size: 21pt; } header .ar { font-family: "Noto Sans Arabic"; font-size: 24pt; color: #4fd1a5; direction: rtl; }
+header p { margin: 2px 0 0; color: #cfe; font-size: 9.5pt; }
+h2 { color: #134b5c; font-size: 12pt; margin: 11px 0 4px; border-bottom: 2px solid #4fd1a5; padding-bottom: 2px; }
+ul { margin: 3px 0; padding-left: 17px; } li { margin: 2px 0; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.card { background: #f4f6f8; border-radius: 6px; padding: 7px 10px; }
+.card b { color: #134b5c; }
+.aman { background: #134b5c; color: #fff; border-radius: 6px; padding: 7px 10px; }
+.aman b { color: #4fd1a5; }
+code, pre { font-family: "Noto Sans Mono", monospace; font-size: 8.8pt; }
+pre { background: #0b2e3a; color: #e6f6ef; padding: 7px 10px; border-radius: 6px; margin: 4px 0; white-space: pre-wrap; }
+table { border-collapse: collapse; width: 100%; font-size: 9.3pt; } td, th { border: 1px solid #d5dde3; padding: 3px 6px; text-align: left; }
+th { background: #134b5c; color: #fff; }
+.syn { color: #8a3ffc; font-weight: bold; }
+.page2 { page-break-before: always; }
+.team { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; text-align: center; }
+.team div { background: #f4f6f8; border-radius: 6px; padding: 7px; } .team div:first-child { background: #134b5c; color: #fff; }
+small { color: #5b6b7a; }
+</style></head><body>
+<header><div><h1>Baseera — Check before you click</h1>
+<p>ScamShield AI Hackathon · Abu Dhabi Police × 42 Abu Dhabi · Team Baseera</p></div><div class="ar">بصيرة</div></header>
+
+<h2>Problem</h2>
+<p>Scammers impersonate UAE government entities, police, banks and telcos with look-alike domains, SMS / WhatsApp links
+and fake “customer service” numbers that appear in sponsored Search results and on Maps pins. One tap on a fake “fine” or
+“account blocked” link can hand over card details and the OTP. Residents need a fast, trustworthy answer; analysts need to
+see that many sites are one campaign and act with evidence.</p>
+<div class="aman"><b>Report fraud — Aman:</b> call <b>8002626</b> · SMS <b>2828</b> <small style="color:#cfe">(adpolice.gov.ae, checked 19 Nov 2026)</small></div>
+
+<h2>Solution &amp; features</h2>
+<div class="grid">
+ <div class="card"><b>1. Link / SMS check.</b> Paste a URL or message → risk 0–100 and the top-3 reasons in Arabic (English below), each tied to a named signal and its evidence.</div>
+ <div class="card"><b>2. Search &amp; Maps check.</b> Compares listing name, phone and website with an Official Entity Registry: sponsored look-alikes, fake support numbers, hijacked Maps pins. Unknown numbers are “unverified”, never “fake”.</div>
+ <div class="card"><b>3. Analyst dashboard.</b> Risky verdicts become cases; cases cluster into campaigns by shared phone, IP, name servers, screenshot hash, registrar, path pattern and target. Node graph + timeline.</div>
+ <div class="card"><b>4. Evidence export.</b> JSON / HTML / PDF / ZIP packs with SHA-256 hashes, UTC timestamps, redirect chain, signal sources and a draft report (never sent automatically).</div>
+ <div class="card"><b>5. Bilingual UI + browser extension.</b> Arabic RTL interface with one-click English; Chrome (MV3) extension checks the current tab against the same API.</div>
+ <div class="card"><b>6. Offline mode.</b> <code>BASEERA_MODE=offline</code>: no network at all, deterministic demo. Every live source is optional, with 4 s timeouts and caching.</div>
+</div>
+
+<h2>Architecture</h2>
+<table>
+<tr><th>Inputs</th><th>Analyzer</th><th>Scoring &amp; explanation</th><th>Outputs</th></tr>
+<tr><td>URL · SMS / WhatsApp text · Search / Maps listing · brand scan</td>
+<td>Normalise (IDN, Public Suffix List, ≤5 redirects, SSRF guard + DNS pinning) · lexical signals · look-alike &amp; phone vs registry · optional RDAP / TLS / crt.sh / feeds / Safe Browsing / SerpAPI · opt-in headless sandbox</td>
+<td>Weighted signals (<code>data/weights.yaml</code>) · overrides: blocklist ⇒ high, official ⇒ low · deterministic Arabic / English reasons</td>
+<td>FastAPI JSON API + static RTL web UI · SQLite cases · campaign clustering · evidence packs</td></tr>
+</table>
+<p><small>Python · FastAPI · SQLite · Playwright (deep scan / PDF) · no ML model in the hot path (explainable, ~1 ms per URL offline).</small></p>
+
+<div class="page2"></div>
+<h2>How to run</h2>
+<pre>./run.sh                          # creates .venv, installs deps, serves http://127.0.0.1:8000
+BASEERA_MODE=offline ./run.sh     # no network at all (safest for a live demo)
+make check                        # ruff + full offline test suite</pre>
+<p>Optional keys go in a git-ignored <code>.env</code> (template: <code>.env.example</code>), loaded automatically; e.g.
+<code>SERPAPI_KEY</code> (or <code>SERPAPI_API_KEY</code>) enables live Search/Maps results. Without keys Baseera still works.
+Browser extension: <code>chrome://extensions</code> → Developer mode → Load unpacked → <code>extension/</code>.
+Demo video: <code>docs/baseera_demo.mp4</code>.</p>
+
+<h2>Measured results (docs/eval.md)</h2>
+<p>105 URLs (43 fraudulent, 62 benign), threshold “medium” (risk ≥ 30): precision 0.98, recall 0.95, F1 0.96, false-positive rate 0.02,
+median 0.95 ms per URL offline. <span class="syn">The fraudulent examples are synthetic</span> look-alikes written by the team: this shows
+the engine behaves as designed, not real-world accuracy. No official registry domain is flagged (false-positive guard test).</p>
+
+<h2>Honest limits</h2>
+<ul>
+ <li><span class="syn">Synthetic data:</span> evaluation frauds, demo Search/Maps listings and demo campaigns are synthetic and labelled as such in UI, API and evidence.</li>
+ <li>Registry: 19 entities; only 9 have phones verified on official sites. Unlisted numbers are “unverified”.</li>
+ <li>Live SerpAPI is wired (key in <code>.env</code>) but verified only with mocked HTTP; the build machine blocks outbound lookups.</li>
+ <li>No LLM step yet (rules + registry). Brand-less lures and raw-IP links can score below medium.</li>
+ <li>Analyst endpoints are open unless <code>ANALYST_TOKEN</code> is set; no rate limiting. Run on localhost for the demo.</li>
+ <li>Full list: <code>docs/LIMITATIONS.md</code>.</li>
+</ul>
+
+<h2>Next steps</h2>
+<ul>
+ <li>Real labelled UAE phishing data (PhishTank / OpenPhish / URLhaus); complete registry phones with the entities.</li>
+ <li>Record live Search / Maps data and monitor top brands daily; LLM vision for grey-zone pages.</li>
+ <li>Pilot evidence packs with the Aman team in the existing reporting workflow.</li>
+</ul>
+
+<h2>Team Baseera</h2>
+<div class="team"><div><b>Mohammed Al Balushi</b><br>Team Lead</div><div><b>Hasan Al salami</b><br>Team member</div><div><b>Adnan Almarzooqi</b><br>Team member</div></div>
+<p style="text-align:center;margin-top:10px"><b style="color:#134b5c">بصيرة: افحص قبل ما تضغط</b> · Baseera: check before you click</p>
+</body></html>

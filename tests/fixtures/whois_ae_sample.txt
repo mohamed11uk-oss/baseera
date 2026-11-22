@@ -1,0 +1,15 @@
+Domain Name:                     demo-lookalike.ae
+Registrar ID:                    DEMO-REG
+Registrar Name:                  Demo Registrar FZ-LLC
+Status:                          ok
+
+Registrant Contact ID:           DEMO1-AE
+Registrant Contact Name:         Demo Registrant
+Registrant Contact Email:        Visit whois.aeda.ae for Web based WhoIs
+
+Tech Contact ID:                 DEMO2-AE
+Tech Contact Name:               Demo Tech
+Tech Contact Email:              Visit whois.aeda.ae for Web based WhoIs
+
+Name Server:                     NS1.DEMO-DNS.AE
+Name Server:                     ns2.demo-dns.ae.

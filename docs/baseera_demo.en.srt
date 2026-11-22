@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:03,850
+Hello, we are team Baseera.
+
+2
+00:00:03,900 --> 00:00:08,920
+Every day, people get messages saying: "You have a fine... pay now!"
+
+3
+00:00:08,920 --> 00:00:11,180
+Or: "Your bank account is suspended!"
+
+4
+00:00:11,180 --> 00:00:15,700
+One tap... and your card number and OTP are gone.
+
+5
+00:00:15,700 --> 00:00:21,780
+If something looks wrong, report it to Aman on 8002626
+
+6
+00:00:21,780 --> 00:00:25,500
+or send an SMS to 2828.
+
+7
+00:00:26,000 --> 00:00:29,900
+Baseera exposes the scam before you click.
+
+8
+00:00:31,450 --> 00:00:34,480
+Let's try a fake traffic-fines link.
+
+9
+00:00:34,480 --> 00:00:36,340
+Look: high risk.
+
+10
+00:00:36,340 --> 00:00:41,580
+The reasons are clear, in Arabic: it uses an official entity's name, has lure words,
+
+11
+00:00:41,580 --> 00:00:43,960
+and it is linked to another scam campaign.
+
+12
+00:00:43,960 --> 00:00:47,420
+Now, the official Abu Dhabi Police website.
+
+13
+00:00:47,420 --> 00:00:50,820
+Safe, because it is in the official registry.
+
+14
+00:00:50,820 --> 00:00:52,740
+And this is a text message:
+
+15
+00:00:52,740 --> 00:00:58,400
+urgency, an OTP request, an unverified mobile number, and a look-alike link.
+
+16
+00:00:58,400 --> 00:00:59,700
+High risk.
+
+17
+00:01:02,900 --> 00:01:05,700
+Scammers don't stop at messages.
+
+18
+00:01:05,700 --> 00:01:10,100
+Sometimes they pay for search ads, or change the phone number on Maps.
+
+19
+00:01:10,100 --> 00:01:12,020
+We search for a well-known bank...
+
+20
+00:01:12,020 --> 00:01:13,800
+The official results show in green.
+
+21
+00:01:13,800 --> 00:01:18,120
+The look-alike ad and the hijacked Maps listing are exposed right away.
+
+22
+00:01:18,120 --> 00:01:22,450
+To be clear: the data in this demo is synthetic, and it is labelled as such.
+
+23
+00:01:30,200 --> 00:01:34,560
+For the authorities, Baseera groups reports into campaigns.
+
+24
+00:01:34,560 --> 00:01:39,060
+Here you see links that share the same server or the same phone number...
+
+25
+00:01:39,060 --> 00:01:40,620
+and the campaign timeline.
+
+26
+00:01:40,620 --> 00:01:42,940
+Evidence is exported as a ready-made pack...
+
+27
+00:01:42,940 --> 00:01:46,150
+with a digital fingerprint (SHA-256) proving it was not altered.
+
+28
+00:01:53,500 --> 00:01:56,780
+Every verdict shows its source,
+
+29
+00:01:56,780 --> 00:01:59,200
+and we are upfront about the system's limits.
+
+30
+00:01:59,200 --> 00:02:03,280
+It works in Arabic and English, and there is a browser extension.
+
+31
+00:02:03,280 --> 00:02:06,520
+Baseera: check before you click.
+
+32
+00:02:06,520 --> 00:02:07,700
+Thank you.
+

@@ -1,0 +1,18 @@
+{
+  "objectClassName": "domain",
+  "ldhName": "FRESH-DEMO.TOP",
+  "status": ["client transfer prohibited"],
+  "events": [
+    {"eventAction": "registration", "eventDate": "2026-11-10T03:14:15Z"},
+    {"eventAction": "expiration", "eventDate": "2027-11-10T03:14:15Z"},
+    {"eventAction": "last update of RDAP database", "eventDate": "2026-11-18T00:00:00Z"}
+  ],
+  "entities": [
+    {"objectClassName": "entity", "handle": "9999", "roles": ["registrar"],
+     "vcardArray": ["vcard", [["version", {}, "text", "4.0"], ["fn", {}, "text", "Demo Registrar Ltd"]]]}
+  ],
+  "nameservers": [
+    {"objectClassName": "nameserver", "ldhName": "NS2.DEMO-DNS.TOP"},
+    {"objectClassName": "nameserver", "ldhName": "ns1.demo-dns.top"}
+  ]
+}

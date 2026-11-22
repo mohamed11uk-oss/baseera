@@ -1,0 +1,12 @@
+[
+ {"phish_id": 1000001, "url": "https://enbd-secure-login.top/verify/", "phish_detail_url": "http://www.phishtank.com/phish_detail.php?phish_id=1000001",
+  "submission_time": "2026-11-17T08:12:00+00:00", "verified": "yes", "verification_time": "2026-11-17T09:00:00+00:00", "online": "yes",
+  "details": [], "target": "Emirates NBD"},
+ {"phish_id": 1000002, "url": "http://www.adpolice-fine-portal.xyz/pay?id=7", "submission_time": "2026-11-18T10:00:00+00:00",
+  "verified": "yes", "online": "yes", "target": "Other"},
+ {"phish_id": 1000003, "url": "https://sites.google.com/view/fab-rewards-demo", "submission_time": "2026-11-18T11:00:00+00:00",
+  "verified": "yes", "online": "yes", "target": "Other"},
+ {"phish_id": 1000004, "url": "https://not-verified-example.top/", "verified": "no", "online": "yes", "target": "Other"},
+ {"phish_id": 1000005, "url": "https://www.bankfab.com/en-ae/compromised-page-demo", "submission_time": "2026-11-18T12:00:00+00:00",
+  "verified": "yes", "online": "yes", "target": "First Abu Dhabi Bank"}
+]

@@ -1,0 +1,12 @@
+Domain Name: old-demo.ae
+Registry Domain ID: DEMO-0001-AE
+Registrar WHOIS Server: whois.aeda.net.ae
+Updated Date: 2025-03-02T08:11:45Z
+Creation Date: 2019-06-14T10:22:03Z
+Registry Expiry Date: 2027-06-14T10:22:03Z
+Registrar: Demo Registrar FZ-LLC
+Domain Status: clientTransferProhibited
+Registrant Contact Name: Demo Registrant
+Name Server: ns1.demo-dns.ae
+Name Server: ns2.demo-dns.ae
+>>> Last update of WHOIS database: 2026-11-19T00:00:00Z <<<
