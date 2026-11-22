@@ -1,0 +1,22 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          { "type": "command", "command": "./scripts/check.sh >/dev/null 2>&1 || (echo 'check failed (ruff/pytest): fix before finishing' >&2; exit 2)" }
+        ]
+      }
+    ]
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
