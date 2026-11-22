@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+data/runtime/
+.env
+*.db
+# raw demo-video recordings / intermediates (the final video is docs/baseera_demo.mp4)
+docs/*.wav
+docs/voiceover_*
+docs/demo_frames/
+docs/baseera_demo_en-subs.mp4
