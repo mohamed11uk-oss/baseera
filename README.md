@@ -12,9 +12,9 @@ BASEERA_MODE=offline ./run.sh     # same, with no network at all (deterministic;
 Open http://127.0.0.1:8000 (Arabic UI, **English** button top-left). Tabs: link/SMS check, Search & Maps check,
 analyst dashboard (campaigns + evidence packs), status & registry.
 
-- **Demo video:** `docs/baseera_demo.mp4` (≈2 min 14 s, 1080p, Arabic voice-over; subtitles `docs/baseera_demo.ar.srt` / `.en.srt`).
+- **Demo video (submission):** [baseera_demo_v2.mp4 on Google Drive](https://drive.google.com/file/d/1YgBR549bf9J28h889s32-M9aGa0d0E1L/view?usp=drivesdk) (anyone with the link can view).
 - **Pitch deck:** `docs/Baseera.pptx` (PNG previews in `docs/deck_preview/`). **Summary (2 pages):** `docs/Baseera_summary.pdf`.
-- **Team Baseera:** Mohammed Al Balushi (Team Lead), Hasan Al salami, Adnan Almarzooqi.
+- **Team Baseera:** Mohammed Nasser Albalushi (Team Lead), Hasan Al salami, Adnan Almarzooqi.
 
 ## Problem
 Scammers impersonate UAE government entities, police, banks and telcos with look-alike websites, SMS links and
@@ -39,13 +39,25 @@ twenty fake sites are one campaign and get an evidence pack.
 6. **Deep scan (opt-in)** — headless Chrome sandbox: screenshot, perceptual hash, OTP/card/Emirates-ID form detection,
    brand text on a non-official domain. No clicks, no form posts, no downloads; every request passes the SSRF guard.
 7. **Browser extension** (`extension/`, Chrome MV3) — checks the current tab against your Baseera server.
-
 8. **Bilingual UI** — Arabic RTL first, one-click English; explanations generated in both languages.
 9. **Offline mode** — `BASEERA_MODE=offline` never touches the network (tests, eval, demo replay).
 
-Screenshots: `docs/screenshots/` (01–10). Pitch deck: `docs/Baseera.pptx` (`scripts/make_pptx.py`, metrics read
-from docs/eval.md; previews in `docs/deck_preview/`). Summary PDF: `docs/Baseera_summary.pdf` (`scripts/make_summary_pdf.py`;
-text version `docs/summary.md`). Demo script: `docs/demo.md`. Demo video: `docs/baseera_demo.mp4`.
+Screenshots: `docs/screenshots/` (01–10). Pitch deck: `docs/Baseera.pptx`. Summary PDF: `docs/Baseera_summary.pdf`.
+Demo script: `docs/demo.md`.
+
+## Tools, APIs and data
+**Core (no keys required):** Python 3.11+, FastAPI, SQLite, static vanilla JavaScript Arabic RTL UI, Chrome MV3 extension,
+`./run.sh` or Docker. Scoring is rules + a verified Official Entity Registry (`data/registry/entities.yaml`) — no ML model
+in the hot path.
+
+**Optional live sources** (all fail-soft, 4 s timeout, cached; disable with `BASEERA_MODE=offline` or per-source flags):
+RDAP, `.ae` WHOIS, crt.sh, TLS certificate age, PhishTank, OpenPhish, Google Safe Browsing v4, SerpAPI (Search & Maps),
+URLhaus, urlscan.io (read existing scans only), VirusTotal (manual deep check only). Keys go in a git-ignored `.env`
+(see `.env.example`). Headless Chrome is used only for the opt-in deep-scan sandbox and evidence PDFs.
+
+**Data in the repo:** 19 UAE entities in the registry (9 with phones verified on the official site on 2026-11-19);
+signal weights in `data/weights.yaml`; a synthetic labelled test set in `data/testset/labeled.csv`; synthetic Search/Maps
+fixtures and demo campaign cases (documentation IP ranges), all labelled.
 
 ## Architecture
 ```
@@ -91,7 +103,7 @@ text version `docs/summary.md`). Demo script: `docs/demo.md`. Demo video: `docs/
 - Secrets only via env vars (`.env.example`); `.env` is git-ignored.
 - Evidence packs state clearly which parts are automated and require analyst confirmation.
 
-## Run it
+## How to build and run
 ```bash
 ./run.sh                          # creates .venv, installs requirements, serves http://127.0.0.1:8000
 # or
@@ -120,31 +132,9 @@ make eval     # writes docs/eval.md: confusion matrix, P/R/F1/FPR, threshold swe
 ```
 Results are in **docs/eval.md** (generated; on a *synthetic* labelled set — not real-world accuracy).
 
-## Data
-- `data/registry/entities.yaml` — 19 entities: 9 `verified` (domains + phones read on the official site on 2026-11-19),
-  10 `domain_only` (phones not confirmed — product owner must add them from the official contact page).
-- `data/weights.yaml` — signal weights and thresholds (initial values, tuned on the synthetic set).
-- `data/testset/labeled.csv` — SYNTHETIC fraudulent examples + real benign sites.
-- `data/fixtures/serp/` — SYNTHETIC Search/Maps listings. `data/samples/demo_cases.json` — SYNTHETIC campaign cases
-  (IPs from documentation ranges 203.0.113.0/24 and 198.51.100.0/24). `data/blocklist/` — SYNTHETIC 2-line feed.
-
-## Build path & continuing in Claude Code
-Built on 2026-11-19 in two phases (see `git log`):
-1. **Core MVP built directly** (registry research, URL engine, listing verifier, clustering, evidence packs, API, RTL UI,
-   tests, eval, docs) — the Claude Code CLI was not available on the build machine at that point.
-2. **Claude Code CLI** (`claude -p`, Mohammed's Claude Pro account) then built, from the plan's prompts:
-   - stage 2/3 threat-intel sources — PhishTank/OpenPhish feeds, crt.sh + .ae WHOIS fallback, Safe Browsing, SerpAPI recorder (commit `fb47a56`);
-   - stage 4 deep-scan sandbox + fetch hardening (commit `4fd6617`);
-   - stage 6 hardening/eval — adversarial FP suite, degradation tests, analyst token, security headers (commit `2c12d4a`,
-     **interrupted by the Claude Pro 5-hour usage limit**; finished directly).
-3. Directly after the limit: browser extension + CORS, parallel brand scan, screenshots, docs, draft deck.
-
-The repo stays Claude-Code-ready: `CLAUDE.md` at the root, the plan's prompts with per-prompt status in
-`docs/claude-prompts.md`, and a Stop hook (`.claude/settings.json`) that runs `./scripts/check.sh` (ruff + pytest).
-
 ## Team
 Team **Baseera (بصيرة)** — ScamShield AI hackathon, Abu Dhabi Police × 42 Abu Dhabi:
-- Mohammed Al Balushi — Team Lead
+- Mohammed Nasser Albalushi — Team Lead
 - Hasan Al salami
 - Adnan Almarzooqi
 
